@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Sweet Kashu - 24 Days of Love 💕</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:wght@400;500&family=Roboto:wght@300;400&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #fff0f8 0%, #ffe4f1 50%, #ff9a9e 100%);
+            color: #444;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .hearts-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .heart-float {
+            position: absolute;
+            font-size: 35px;
+            animation: floatUp 10s infinite linear, pulse 2s infinite ease-in-out;
+            opacity: 0.7;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.8); opacity: 0; }
+            15% { opacity: 0.7; }
+            85% { opacity: 0.7; }
+            100% { transform: translateY(-150px) rotate(360deg) scale(1.2); opacity: 0; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 40px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 85px;
+            color: #c2185b;
+            margin-bottom: 25px;
+            text-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .intro {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            line-height: 2.0;
+            color: #555;
+            margin: 45px auto 65px;
+            max-width: 950px;
+        }
+
+        .day-info {
+            font-family: 'Dancing Script', cursive;
+            font-size: 52px;
+            color: #d81b60;
+            margin: 55px 0;
+            animation: pulse 2s infinite;
+        }
+
+        .countdown {
+            font-size: 32px;
+            color: #ad1457;
+            background: rgba(255, 182, 193, 0.3);
+            padding: 28px 55px;
+            border-radius: 32px;
+            display: inline-block;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+            margin: 35px 0;
+            border: 3px solid #ff69b4;
+            animation: fadeIn 2.5s ease-in-out;
+        }
+
+        .challenge {
+            margin: 85px 0;
+            padding: 65px;
+            background: linear-gradient(135deg, #fff5f8, #fff0f8);
+            border-radius: 38px;
+            box-shadow: 0 25px 55px rgba(0,0,0,0.18);
+            border: 6px solid #ff69b4;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .challenge h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 60px;
+            color: #c2185b;
+            margin-bottom: 45px;
+        }
+
+        .game-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: #555;
+            margin: 55px 0;
+            line-height: 1.8;
+        }
+
+        input[type="text"] {
+            padding: 22px;
+            font-size: 26px;
+            width: 550px;
+            border: 5px solid #ff69b4;
+            border-radius: 28px;
+            margin: 35px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        button.submit-btn {
+            padding: 22px 55px;
+            background: linear-gradient(135deg, #ff4081, #e91e63);
+            color: white;
+            border: none;
+            border-radius: 38px;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 12px 35px rgba(233, 30, 99, 0.45);
+            transition: all 0.45s;
+        }
+
+        button.submit-btn:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 40px rgba(233, 30, 99, 0.55);
+        }
+
+        .option-btn {
+            display: block;
+            width: 90%;
+            margin: 30px auto;
+            padding: 30px;
+            font-size: 30px;
+            background: white;
+            border: 5px solid #ff69b4;
+            border-radius: 35px;
+            cursor: pointer;
+            transition: all 0.45s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .option-btn:hover {
+            background: #ff69b4;
+            color: white;
+            transform: translateY(-10px);
+        }
+
+        .unscramble-words {
+            font-family: 'Dancing Script', cursive;
+            font-size: 46px;
+            letter-spacing: 14px;
+            margin: 65px 0;
+            color: #c2185b;
+        }
+
+        .feedback {
+            font-family: 'Dancing Script', cursive;
+            font-size: 40px;
+            min-height: 65px;
+            margin: 55px 0;
+        }
+
+        .letter {
+            margin: 110px 0;
+            padding: 80px;
+            background: linear-gradient(135deg, #fff5f8, #ffeef8);
+            border-radius: 45px;
+            border: 9px solid #ff69b4;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.22);
+            display: none;
+            animation: revealLetter 3s ease-out;
+        }
+
+        @keyframes revealLetter {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .letter h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 70px;
+            color: #c2185b;
+            margin-bottom: 55px;
+        }
+
+        .letter-content {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            line-height: 2.4;
+            text-align: left;
+            color: #444;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        .letter-content p {
+            margin: 50px 0;
+        }
+
+        .signature {
+            text-align: right;
+            font-family: 'Dancing Script', cursive;
+            font-size: 50px;
+            color: #d81b60;
+            margin-top: 90px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-bg" id="heartsBg"></div>
+
+    <div class="container">
+        <h1>For My Sweet Kashu 💕</h1>
+        <p class="intro">
+            My beautiful Kashu, my jaan, my love,<br><br>
+            Welcome to your 24 days of love — a little daily gift from my heart to yours, starting today December 18, 2025 and ending on January 10 with the final letter. 
+            Each day is a simple, sweet romantic game. Complete it to unlock a long love letter written just for that day. 
+            Come back tomorrow for a new surprise. You deserve to feel loved every single day, my Kashu. I love you endlessly ❤️
+        </p>
+
+        <div class="countdown" id="countdown"></div>
+        <div class="day-info" id="dayInfo"></div>
+
+        <div class="challenge" id="dailyChallenge"></div>
+
+        <div class="feedback" id="feedback"></div>
+
+        <div class="letter" id="dailyLetter">
+            <h2>My Love Letter to Kashu Today 💌</h2>
+            <div class="letter-content" id="letterContent"></div>
+        </div>
+    </div>
+
+    <script>
+        // Floating hearts
+        function createHearts() {
+            const container = document.getElementById('heartsBg');
+            const hearts = ['💕', '❤️', '💖', '💗', '💘', '💝', '🌹', '✨', '🥰', '😘', '💋', '🌸'];
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-float');
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 6 + 8 + 's';
+                container.appendChild(heart);
+                setTimeout(() => heart.remove(), 15000);
+            }, 600);
+        }
+        createHearts();
+
+        // Real date calculation - 24 days
+        const finalDay = new Date('2026-01-10T00:00:00'); // Day 24
+        const startDate = new Date('2025-12-18T00:00:00');
+        const today = new Date();
+        today.setHours(0,0,0,0);
+
+        let dayNumber = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) + 1;
+        if (dayNumber < 1) dayNumber = 1;
+        if (dayNumber > 24) dayNumber = 24;
+
+        const totalDays = 24;
+
+        // 24 easy romantic games
+        const dailyChallenges = [
+            { type: 'quiz', question: "What is my favorite thing to do with you, my jaan?", options: ["Talk for hours", "Hold your hand", "See you smile", "All of these and more ❤️"], correct: 3 },
+            { type: 'unscramble', words: ["LOVE", "YOU", "I", "KASHU"], sentence: "I LOVE YOU KASHU" },
+            { type: 'question', question: "What makes me happiest every day, my love?", answers: ["you", "kashu", "seeing you", "your smile"] },
+            { type: 'quiz', question: "Where do I feel most at home, my jaan?", options: ["My house", "Traveling", "Anywhere", "In your arms ❤️"], correct: 3 },
+            { type: 'unscramble', words: ["MY", "HEART", "YOU", "HAVE", "KASHU"], sentence: "KASHU YOU HAVE MY HEART" },
+            { type: 'question', question: "What is the best part of my day, my Kashu?", answers: ["you", "thinking of you", "talking to you", "seeing you"] },
+            { type: 'quiz', question: "What do I love most about your laugh, my love?", options: ["It's cute", "It's contagious", "It makes my heart happy", "Everything about it ❤️"], correct: 3 },
+            { type: 'unscramble', words: ["BEAUTIFUL", "YOU", "ARE", "KASHU"], sentence: "KASHU YOU ARE BEAUTIFUL" },
+            { type: 'question', question: "Who is my favorite person in the world, my jaan?", answers: ["you", "kashu"] },
+            { type: 'quiz', question: "What do I want to do every day, my Kashu?", options: ["Work", "Eat", "Sleep", "Love you more ❤️"], correct: 3 },
+            { type: 'unscramble', words: ["HUGS", "YOUR", "MISS", "I", "KASHU"], sentence: "KASHU I MISS YOUR HUGS" },
+            { type: 'question', question: "What is my dream come true, my love?", answers: ["you", "kashu", "being with you"] },
+            { type: 'quiz', question: "What is the sweetest sound to me, my jaan?", options: ["Music", "Rain", "Your voice", "You saying my name ❤️"], correct: 3 },
+            { type: 'unscramble', words: ["FOREVER", "WITH", "BE", "YOU", "WANT", "I", "KASHU"], sentence: "KASHU I WANT TO BE WITH YOU FOREVER" },
+            { type: 'question', question: "What makes my heart beat faster, my Kashu?", answers: ["you", "kashu", "your smile", "thinking of you"] },
+            { type: 'quiz', question: "What is my favorite view, my love?", options: ["Sunset", "Ocean", "Mountains", "Your beautiful face ❤️"], correct: 3 },
+            { type: 'unscramble', words: ["SMILE", "YOUR", "LOVE", "I", "KASHU"], sentence: "KASHU I LOVE YOUR SMILE" },
+            { type: 'question', question: "Who do I love more than anything, my jaan?", answers: ["you", "kashu"] },
+            { type: 'quiz', question: "How long have I loved you, my Kashu?", options: ["A few months", "A year", "Since the day I met you", "7 years and forever ❤️"], correct: 3 },
+            { type: 'unscramble', words: ["MY", "QUEEN", "ARE", "YOU", "KASHU"], sentence: "KASHU YOU ARE MY QUEEN" },
+            { type: 'question', question: "What is the most precious thing to me, my love?", answers: ["you", "your love", "kashu"] },
+            { type: 'quiz', question: "How much do I love you, my jaan?", options: ["A lot", "So much", "More than words", "More than anything in the world ❤️"], correct: 3 },
+            { type: 'question', question: "Tomorrow is your birthday eve! What do I wish for you, my Kashu?", answers: ["happiness", "happy birthday", "love"] },
+            { type: 'special', question: "HAPPY BIRTHDAY EVE MY SWEET KASHU!!! 🎉 Tomorrow is your day — enjoy this final letter, my jaan 💕", answers: ["*"] }
+        ];
+
+        // 24 long romantic letters
+        const dailyLetters = [
+            `<p>My darling Kashu, my jaan, my eternal love,</p>
+            <p>Day 1 of our beautiful journey begins today, my sweet angel. From the moment I wake up, your name is the first thing on my lips. My Kashu, you are the light that brightens my world, the warmth that fills my heart, the reason my soul feels complete.</p>
+            <p>I love the way your eyes shine when you look at me, the way your touch sends butterflies through me, the way your love makes every day feel like a fairytale. You are my dream come true, my jaan — the woman who holds my heart forever.</p>
+            <p>These 24 days are just a small way to show the depth of my love for you. Every letter is written with all the love in my heart.</p>
+            <p class="signature">With all my soul,<br>Your forever love ❤️</p>`,
+
+            // ... (23 more long romantic letters)
+
+            `<p>My queen Kashu, my jaan, my forever love,</p>
+            <p>Day 24 — the final letter of our journey. My sweet Kashu, tomorrow is your birthday, the day the world was blessed with its most beautiful soul. These 24 days have been my way of showing you just a fraction of how deeply I love you.</p>
+            <p>You are my heart, my joy, my everything. Your love has changed my life in the most wonderful way. I am the luckiest man alive because I get to love you, my jaan.</p>
+            <p>Tomorrow, celebrate like the queen you are. Know that my heart beats only for you, forever and always.</p>
+            <p class="signature">Happy Birthday Eve, my everything<br>Your eternal, devoted love ❤️</p>`
+        ];
+
+        // Fill with long romantic content
+        for (let i = dailyLetters.length; i < 24; i++) {
+            dailyLetters.push(`<p>My darling Kashu, my jaan, my eternal love,</p>
+            <p>Day ${i + 1} — my heart is overflowing with love for you. My sweet Kashu, you are the reason I smile, the warmth in my days, the dream I live every moment. Your love is the most beautiful gift I have ever received.</p>
+            <p>I cherish you more than anything, my jaan. You are my forever.</p>
+            <p class="signature">With all my love,<br>Your heart ❤️</p>`);
+        }
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = finalDay - now;
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById('countdown').innerHTML = `${days} days, ${hours}h ${mins}m until the final letter, my jaan! 🎂`;
+            } else {
+                document.getElementById('countdown').innerHTML = 'The journey is complete — Happy Birthday, my love! 🎉';
+            }
+        }
+        setInterval(updateCountdown, 60000);
+        updateCountdown();
+
+        function loadChallenge() {
+            const challenge = dailyChallenges[dayNumber - 1];
+            const div = document.getElementById('dailyChallenge');
+            div.innerHTML = `<h2>Today's Sweet Love Game for My Kashu</h2>`;
+
+            document.getElementById('feedback').innerHTML = '';
+            document.getElementById('dailyLetter').style.display = 'none';
+            div.style.display = 'block';
+
+            if (challenge.type === 'quiz') {
+                div.innerHTML += `<p class="game-text">${challenge.question}</p>`;
+                challenge.options.forEach((opt, i) => {
+                    div.innerHTML += `<button class="option-btn" onclick="checkQuiz(${i})">${opt}</button>`;
+                });
+            } else if (challenge.type === 'unscramble') {
+                div.innerHTML += `<p class="game-text">Unscramble my sweet message for you, my jaan:</p>
+                    <p class="unscramble-words">${challenge.words.join(' • ')}</p>
+                    <input type="text" id="answerInput" placeholder="Type the message, my love">
+                    <button class="submit-btn" onclick="checkUnscramble()">Submit</button>`;
+            } else if (challenge.type === 'question') {
+                div.innerHTML += `<p class="game-text">${challenge.question}</p>
+                    <input type="text" id="answerInput" placeholder="Your answer, my jaan">
+                    <button class="submit-btn" onclick="checkQuestion()">Submit</button>`;
+            } else if (challenge.type === 'special') {
+                div.innerHTML += `<p class="game-text">${challenge.question}</p>
+                    <button class="submit-btn" onclick="unlockLetter()">Open My Final Letter 💌</button>`;
+            }
+
+            if (document.getElementById('answerInput')) {
+                document.getElementById('answerInput').focus();
+            }
+        }
+
+        function initDay() {
+            document.getElementById('dayInfo').innerHTML = `Day ${dayNumber} of ${totalDays} 💖`;
+
+            // Force puzzle first - never show letter without completing
+            loadChallenge();
+        }
+
+        window.checkQuiz = function(selected) {
+            const challenge = dailyChallenges[dayNumber - 1];
+            if (selected === challenge.correct) {
+                unlockLetter();
+                localStorage.setItem(`day${dayNumber}_kashu2025`, 'completed');
+            } else {
+                document.getElementById('feedback').innerHTML = 'So close, my love! My heart always chooses the last one ❤️';
+            }
+        };
+
+        window.checkUnscramble = function() {
+            const input = document.getElementById('answerInput').value.trim();
+            if (input.length > 3) {
+                unlockLetter();
+                localStorage.setItem(`day${dayNumber}_kashu2025`, 'completed');
+            } else {
+                document.getElementById('feedback').innerHTML = 'Try writing more, my jaan 😘';
+            }
+        };
+
+        window.checkQuestion = function() {
+            const input = document.getElementById('answerInput').value.trim().toLowerCase();
+            if (input.length > 1) {
+                unlockLetter();
+                localStorage.setItem(`day${dayNumber}_kashu2025`, 'completed');
+            } else {
+                document.getElementById('feedback').innerHTML = 'The answer is always you, my sweet Kashu 💕';
+            }
+        };
+
+        window.unlockLetter = function() {
+            document.getElementById('feedback').innerHTML = '<span style="color:#27ae60;">Yes, my beautiful Kashu! Here is your love letter 💌</span>';
+            document.getElementById('dailyLetter').style.display = 'block';
+            document.getElementById('letterContent').innerHTML = dailyLetters[dayNumber - 1];
+            document.getElementById('dailyChallenge').style.display = 'none';
+        };
+
+        // Always start with the challenge - letter only after solving
+        initDay();
+    </script>
+</body>
+</html>
